@@ -1,59 +1,32 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
   <title>BusMall</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
   <header>
-    <h1>BusMall</h1>
-
   </header>
-
-
   <main>
-
-
     <form id="chooseProduct">
       <fieldset>
         <legend>Choose a Product</legend>
-
         <label for="item1"><img id="firstImage" src="http://via.placeholder.com/200x200" /></label>
         <input type="radio" id="item1" name="imageChoice" value="0"/>
-
         <label for="item2"><img id="secondImage" src="http://via.placeholder.com/200x200" /></label>
         <input type="radio" id="item2" name="imageChoice" value="1"/>
-
         <label for="item3"><img id="thirdImage" src="http://via.placeholder.com/200x200" /></label>
         <input type="radio" id="item3" name="imageChoice" value="2"/>
       </fieldset>
-
       <input type="submit" id="submit"/>
     </form>
-
-    <section id="results">
-
-      
-    </section>
-
-
-
+    <canvas id="results"></canvas>
   </main>
-
-
   <footer>
-
   </footer>
-
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="js/app.js"></script>
-
 </body>
-
-
 </html>
