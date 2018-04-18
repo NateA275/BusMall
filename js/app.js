@@ -1,4 +1,5 @@
 'use strict';
+
 /**
  * Variables
  */
@@ -7,8 +8,8 @@ Product.allNames = []; //Holds all product names
 Product.allVotes = []; //Holds number of votes for all products
 Product.currentDisplay = []; //Holds index numbers of products that are currently displayed
 Product.indexHolder = []; //Holds index numbers to be compared to current display
-Product.ITERATIONS = 25; //Number of voting rounds
-Product.NUMBER_DISPLAYED = 3; //How many images are displayed per voting round
+Product.ITERATIONS = 5; //Constant number of voting rounds
+Product.NUMBER_DISPLAYED = 3; //Constant how many images are displayed per voting round
 Product.iterationCounter = 0; //Tracks number of iterations
 Product.choice; //Contains user's latest choice
 Product.firstImage = document.getElementById('firstImage'); //HTML location of first image
@@ -33,6 +34,7 @@ function Product(url, name) {
 
 /**
  * Generates Random Index Numbers
+ * @return {} array 3 random integers
  */
 function getIndexNumbers() {
   for(var i = 0; i < Product.NUMBER_DISPLAYED; i++) {
@@ -82,6 +84,9 @@ function handleVote(event) {
   }
 }
 
+/**
+ * Update Vote Counter Array for all Products
+ */
 function updateVotes() {
   for(var i = 0; i < Product.allProducts.length; i++) {
     Product.allVotes.push(Product.allProducts[i].votes);
