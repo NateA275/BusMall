@@ -107,7 +107,7 @@ function renderResults() {
       datasets: [{
         label: 'Number Of Votes',
         data: Product.allVotes,
-        backgroundColor: 'blue',
+        backgroundColor: 'red',
         hoverbackgroundColor: 'red',
       }]
     },

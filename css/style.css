@@ -11,34 +11,8 @@ header {
 
 header #logo {
   margin: 15px 75px 15px 75px;
-}
-
-#sideBar {
-  position: absolute;
-  top: 120px;
-  left:20px;
-  width: 200px;
-  background-color: rgb(80, 80, 80);
-}
-
-#sideBar a {
   display: inline-block;
-  width: 200px;
-  border: none;
-  color: white;
-  text-decoration: none;
-  padding: 10px 0 10px 0;
-  text-align: center;
 }
-
-#sideBar a:hover {
-  background-color: rgb(90, 90, 90);
-}
-
-#sideBar a:active {
-  background-color: re
-}
-
 
 main {
   width: 960px;
@@ -49,37 +23,28 @@ main {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+main p {
+  display: block;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  width: 400px;
+  font-size: .5em;
+  text-align: right;
+  margin: auto;
+  padding: 2em;
+  background-color: rgb(151, 151, 151);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#container {
-  padding-top: 2em;
 }
 
+#container {
+  margin-top: 1em;
+}
 
 #chooseProduct{
-  /* display: block; */
   height: 240px;
   width: 740px;
   padding: 20px 0 20px 0;
   margin: auto;
-  /* margin-top: 30px; */
-  /* margin-bottom: 30px; */
   background-color: rgba(107, 107, 107, 0.2);
   border: 2px solid rgba(50, 50, 50, .2);
   border-radius: 10px;
@@ -110,12 +75,37 @@ main {
   z-index: 1;
   transform: scale(1.5, 1.5);
   box-shadow: 0 0 15px rgb(0, 0, 0);
-  transition: all .1s linear;
+  transition: all .2s linear;
 }
 
 canvas {
-  width: 50px;
-  height: 50px;
+  color: black;
+  width: 100%;
+  height: 480px;
+}
+
+#bottombar {
+  width: 100%;
+  background-color: rgb(80, 80, 80);
+  text-align: right;
+  padding-bottom: 10px;
+}
+
+#bottombar button {
+  color: white;
+  text-decoration: none;
+  background-color: rgb(80, 80, 80);
+  border: none;
+  padding: 10px;
+  margin: none;
+}
+
+#bottombar button:hover {
+  background-color: rgb(211, 9, 9);
+}
+
+#bottombar button:focus {
+  background-color: rgb(211, 9, 9);
 }
 
 footer {
@@ -129,13 +119,19 @@ footer {
   text-align: center;
   color: rgb(80, 80, 80);
 }
+
 footer div {
   width: 300px;
   vertical-align: bottom;
   margin: auto;
   padding-top: 6em;
 }
+
 footer p a {
   text-decoration: none;
   color: rgb(80, 80, 80);
+}
+
+footer a:hover {
+  color: rgb(211, 9, 9);
 }
