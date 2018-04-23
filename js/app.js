@@ -16,7 +16,7 @@ Product.firstImage = document.getElementById('firstImage'); //HTML location of f
 Product.secondImage = document.getElementById('secondImage'); //HTML location of second image
 Product.thirdImage = document.getElementById('thirdImage'); //HTML location of third image
 Product.elementObject = document.getElementById('chooseProduct'); //HTML location of form
-Product.elementObject.addEventListener('click', handleVote); //Create event listener
+Product.elementObject.addEventListener('click', handleVote); //Create event listener for clicks on images
 
 /**
  * Constructor for listed items.
@@ -28,7 +28,6 @@ function Product(url, name) {
   this.name = name;
   this.votes = 0;
   this.displays = 0;
-  Product.allNames.push(this.name);
   Product.allProducts.push(this);
 }
 
@@ -47,7 +46,7 @@ function getIndexNumbers() {
 }
 
 /**
- * TODO Figure out how to scale this with NUMBER_DISPLAYED
+ * Post selected images to HTML Element
  */
 function postImages() {
   getIndexNumbers();
@@ -64,22 +63,24 @@ function postImages() {
 
 /**
  * Increments iterations and vote counter for selected object
- * @param {*} event Called upon submit
+ * @param {event} event Called upon submit
  */
 function handleVote(event) {
-  Product.iterationCounter++;
-  for (var i = 0; i < Product.allProducts.length; i++) {
-    if (event.target.alt === Product.allProducts[i].name) {
-      Product.allProducts[i].votes++;
-      break;
+  if(event.target === Product.firstImage || event.target === Product.secondImage || event.target === Product.thirdImage) {
+    Product.iterationCounter++;
+    for (var i = 0; i < Product.allProducts.length; i++) {
+      if (event.target.alt === Product.allProducts[i].name) {
+        Product.allProducts[i].votes++;
+        break;
+      }
     }
-  }
-  if (Product.iterationCounter < Product.ITERATIONS) {
-    postImages();
-  } else {
-    Product.elementObject.removeEventListener('click', handleVote); //Remove event listener
-    updateVotes();
-    renderResults();
+    if (Product.iterationCounter < Product.ITERATIONS) {
+      postImages();
+    } else {
+      Product.elementObject.removeEventListener('click', handleVote); //Remove event listener
+      updateVotes();
+      renderResults();
+    }
   }
 }
 
@@ -105,10 +106,10 @@ function renderResults() {
     data: {
       labels: Product.allNames,
       datasets: [{
-        label: 'Number Of Votes',
-        data: Product.allVotes,
-        backgroundColor: 'red',
-        hoverbackgroundColor: 'red',
+        label: 'Number of Votes',
+        data: Product.allVotes, 
+        backgroundColor: 'rgba(250, 9, 9, .4)',
+        hoverBackgroundColor: 'red',
       }]
     },
     options: {
@@ -130,8 +131,7 @@ function renderResults() {
 /**
  * Create Objects
  */
-var parsedProducts = JSON.parse(localStorage.getItem('allProducts'));
-Product.allProducts = parsedProducts || [
+Product.allProducts = JSON.parse(localStorage.getItem('allProducts')) || [
   new Product('img/bag.jpg', 'R2D2 Bag'),
   new Product('img/banana.jpg', 'Banana Slicer'),
   new Product('img/bathroom.jpg', 'Bathroom Caddy'),
